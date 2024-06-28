@@ -39,12 +39,12 @@ def analyze_image(platform):
     
     # Get image_path parameter from GET request
     image = request.args.get('img', '')
-    image_path = f'/img/{str(image)}.jpg'
+    #image_path = f'/img/{str(image)}.jpg'
     if not image:
         return jsonify({'ok': False, 'msg': 'Missing image_path parameter'}), 400
     
     # Perform OCR on the image
-    extracted_text = perform_ocr(image_path)
+    extracted_text = perform_ocr(image)
     
     if extracted_text:
         # Check if keywords are present in the extracted text
